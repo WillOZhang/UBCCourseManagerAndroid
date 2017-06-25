@@ -13,10 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +22,11 @@ import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.BuildingManage
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Course;
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.CourseManager;
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Department;
-import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Instructor;
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.InstructorManager;
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Section;
 import will.ubccoursemanager.CourseSchedule.ReadData;
 import will.ubccoursemanager.CourseSchedule.ReadJson;
-import will.ubccoursemanager.SupportUI.CourseView;
-import will.ubccoursemanager.SupportUI.ListViewAdapter;
+import will.ubccoursemanager.SupportUI.FDCListViewAdapter;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "Tag";
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private BuildingManager buildingManager;
     private InstructorManager instructorManager;
 
-    private ListViewAdapter adapter;
+    private FDCListViewAdapter adapter;
     private ListView listView;
     private List<String> dataList;
 
@@ -91,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         listView = (ListView) findViewById(R.id.faculty_list);
-        adapter = new ListViewAdapter(this, dataList);
+        adapter = new FDCListViewAdapter(this, dataList);
         listView.setAdapter(adapter);
         assignOnItemClickListener();
         Log.i(TAG, "Created a screen");

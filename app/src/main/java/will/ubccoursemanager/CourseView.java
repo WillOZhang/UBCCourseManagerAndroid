@@ -1,4 +1,4 @@
-package will.ubccoursemanager.SupportUI;
+package will.ubccoursemanager;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Course;
-import will.ubccoursemanager.R;
+import will.ubccoursemanager.SupportUI.FDCListViewAdapter;
 
 public class CourseView extends AppCompatActivity {
     private List<String> dataList;
@@ -33,8 +33,8 @@ public class CourseView extends AppCompatActivity {
         description.setMovementMethod(new ScrollingMovementMethod());
 
         ListView listView = (ListView) findViewById(R.id.sections);
-        ListViewAdapter listViewAdapter = new ListViewAdapter(this, dataList);
-        listView.setAdapter(listViewAdapter);
+        FDCListViewAdapter fdcListViewAdapter = new FDCListViewAdapter(this, dataList);
+        listView.setAdapter(fdcListViewAdapter);
     }
 
     public void cancel(View view) {

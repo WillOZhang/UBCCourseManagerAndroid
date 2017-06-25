@@ -2,7 +2,6 @@ package will.ubccoursemanager.SupportUI;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import will.ubccoursemanager.R;
 
@@ -21,7 +19,7 @@ import will.ubccoursemanager.R;
  * Created by Will on 2017/5/27.
  */
 
-public class ListViewAdapter extends ArrayAdapter<String> {
+public class FDCListViewAdapter extends ArrayAdapter<String> {
     private static final String TAG = "Tag";
     private static final String ERROR = "Error";
 
@@ -41,7 +39,7 @@ public class ListViewAdapter extends ArrayAdapter<String> {
         ImageView imageView;
     }
 
-    public ListViewAdapter(Context context, List<String> values) {
+    public FDCListViewAdapter(Context context, List<String> values) {
         super(context, -1, values);
         this.context = context;
         this.values = values;
@@ -161,7 +159,7 @@ public class ListViewAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
                     //(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.faculty_list, parent, false);
+            convertView = inflater.inflate(R.layout.fdc_list, parent, false);
 
             viewHolder = new ViewHolder();
             viewHolder.textView1 = (TextView) convertView.findViewById(R.id.firstLine);

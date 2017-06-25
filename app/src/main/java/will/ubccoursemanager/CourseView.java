@@ -12,6 +12,7 @@ import java.util.List;
 
 import will.ubccoursemanager.CourseSchedule.CourseScheduleManager.Course;
 import will.ubccoursemanager.SupportUI.FDCListViewAdapter;
+import will.ubccoursemanager.SupportUI.SListViewAdapter;
 
 public class CourseView extends AppCompatActivity {
     private List<String> dataList;
@@ -33,8 +34,8 @@ public class CourseView extends AppCompatActivity {
         description.setMovementMethod(new ScrollingMovementMethod());
 
         ListView listView = (ListView) findViewById(R.id.sections);
-        FDCListViewAdapter fdcListViewAdapter = new FDCListViewAdapter(this, dataList);
-        listView.setAdapter(fdcListViewAdapter);
+        SListViewAdapter sListViewAdapter = new SListViewAdapter(this, dataList);
+        listView.setAdapter(sListViewAdapter);
     }
 
     public void cancel(View view) {

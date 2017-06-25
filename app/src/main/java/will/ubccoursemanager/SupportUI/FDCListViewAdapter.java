@@ -31,7 +31,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
 
     private List<String> firstLineTextList;
     private List<String> secondLineTextList;
-    private String dealWith = "f";
 
     private static class ViewHolder {
         TextView textView1;
@@ -50,7 +49,7 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
         }
 
         updateData(values);
-        Log.i(TAG, "List adapter has been created");
+        Log.i(TAG, "FDC List adapter has been created");
     }
 
     @Override
@@ -62,10 +61,7 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
     private void updateData(List<String> values) {
         String string = values.get(0);
         displayString = string.split("@");
-        if (string.contains("courseInfo")) {
-            preHandleS();
-            Log.i(TAG, "updated sections info");
-        } else if (string.contains("course#")) {
+        if (string.contains("course#")) {
             preHandleC();
             Log.i(TAG, "updated courses info");
         } else if (displayString.length == 1) {
@@ -80,7 +76,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
 
     private void preHandleF() {
         reset();
-        dealWith = "f";
         for (int i = 0; i < values.size(); i++) {
             String string = values.get(i);
             displayString = string.split("@");
@@ -90,7 +85,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
 
     private void preHandleD() {
         reset();
-        dealWith = "d";
         for (int i = 0; i < values.size(); i++) {
             String string = values.get(i);
             displayString = string.split("@");
@@ -101,7 +95,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
 
     private void preHandleC() {
         reset();
-        dealWith = "c";
         for (int i = 0; i < values.size(); i++) {
             try {
                 String string = values.get(i);
@@ -115,33 +108,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
                 secondLineTextList.add(secondLineName);
             } catch (IndexOutOfBoundsException e) {
                 Log.i(ERROR, e.getMessage() + values.get(i));
-            }
-        }
-    }
-
-    private void preHandleS() {
-        reset();
-        dealWith = "s";
-        for (int i = 0; i < values.size(); i++) {
-            String string = values.get(i);
-            if (string.contains("section!")) {
-                try {
-                    displayString = string.split("section!")[1].split("@");
-                    firstLineName = "Section: " + displayString[0] + "   " + displayString[1];
-                    firstLineTextList.add(firstLineName);
-                    String secondLineName = "Term: " + displayString[2] + "   " + displayString[3];
-                    secondLineTextList.add(secondLineName);
-                } catch (IndexOutOfBoundsException e) {
-                    Log.i(ERROR, string);
-                }
-            } else if (string.contains("No section for the selected course")) {
-                firstLineName = "No section for the selected course";
-                firstLineTextList.add(firstLineName);
-            } else if (string.contains("courseInfo")) {
-                firstLineName = string.split("courseInfo")[1].split("description")[0];
-                firstLineTextList.add(firstLineName);
-                String secondLineName = string.split("courseInfo")[1].split("description")[1];
-                secondLineTextList.add(secondLineName);
             }
         }
     }

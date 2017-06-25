@@ -140,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
                         courseChosen = departmentChosen.getCourse(temp.split("@")[2]);
                         List<String> displaySections = new ArrayList<String>();
                         List<String> tempList = courseChosen.getSectionsList();
-                        displaySections.add(0, "courseInfo" + courseChosen.getDepartment().getShortName() +
-                                " " + courseChosen.getCourseNumber() + "description" + courseChosen.getDescription());
+//                        displaySections.add(0, "courseInfo" + courseChosen.getDepartment().getShortName() +
+//                                " " + courseChosen.getCourseNumber() + "description" + courseChosen.getDescription());
                         if (tempList.size() > 0) {
                             tempList = courseManager.getSectionsByCourse(courseChosen);
                             for (String section : tempList)

@@ -30,7 +30,11 @@ public class CourseView extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.courseDescription);
 
         courseName.setText(course.getDepartment().getShortName() + " " + course.getCourseNumber() + " " + course.getCourseName());
-        description.setText(course.getReqs() + "\n" + course.getDescription());
+        String descriptionText = course.getReqs() + "\n" + course.getDescription();
+        if (descriptionText.length() > 1)
+            description.setText(descriptionText);
+        else
+            description.setText(R.string.no_description);
         description.setMovementMethod(new ScrollingMovementMethod());
 
         ListView listView = (ListView) findViewById(R.id.sections);

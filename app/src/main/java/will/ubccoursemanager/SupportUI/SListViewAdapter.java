@@ -2,9 +2,6 @@ package will.ubccoursemanager.SupportUI;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SlidingPaneLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +47,7 @@ public class SListViewAdapter extends ArrayAdapter<String> {
             secondLineTextList = new ArrayList<>();
         }
 
-        updateData(values);
+        updateData();
         Log.i(TAG, "Section List adapter has been created");
     }
 
@@ -91,13 +88,9 @@ public class SListViewAdapter extends ArrayAdapter<String> {
         }
     }
 
-    private void updateData(List<String> values) {
-        String string = values.get(0);
-        displayString = string.split("@");
-        if (string.contains("courseInfo")) {
-            preHandleS();
-            Log.i(TAG, "updated sections info");
-        }
+    private void updateData() {
+        preHandleS();
+        Log.i(TAG, "updated sections info");
     }
 
     private void preHandleS() {
@@ -118,15 +111,6 @@ public class SListViewAdapter extends ArrayAdapter<String> {
                 firstLineName = "No section for the selected course";
                 firstLineTextList.add(firstLineName);
             }
-//            else if (string.contains("courseInfo")) {
-//                firstLineName = string.split("courseInfo")[1].split("description")[0];
-//                firstLineTextList.add(firstLineName);
-//                String secondLineName = string.split("courseInfo")[1].split("description")[1];
-//                if (secondLineName.length() > 1)
-//                    secondLineTextList.add(secondLineName);
-//                else
-//                    secondLineTextList.add("");
-//            }
         }
     }
 

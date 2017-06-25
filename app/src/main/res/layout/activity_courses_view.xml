@@ -28,7 +28,6 @@
             android:id="@+id/courseName"
             android:layout_width="347dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="9dp"
             android:layout_marginStart="9dp"
             android:layout_marginTop="8dp"
             android:background="#6666e7"

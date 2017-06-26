@@ -124,7 +124,6 @@ public class FDCListViewAdapter extends ArrayAdapter<String> {
 
         if (convertView == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-                    //(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.fdc_list, parent, false);
 
             viewHolder = new ViewHolder();

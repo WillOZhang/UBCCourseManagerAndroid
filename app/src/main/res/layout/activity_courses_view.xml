@@ -12,7 +12,6 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,10 +25,9 @@
 
         <TextView
             android:id="@+id/courseName"
-            android:layout_width="347dp"
+            android:layout_width="348dp"
             android:layout_height="35dp"
             android:layout_marginStart="9dp"
-            android:layout_marginTop="8dp"
             android:background="#6666e7"
             android:padding="5dp"
             android:paddingBottom="5dp"
@@ -37,64 +35,92 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingStart="5dp"
-            android:paddingTop="5dp"
             android:textColor="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_editor_absoluteY="4dp"
-            tools:layout_editor_absoluteX="17dp" />
+            tools:layout_constraintTop_creator="1" />
 
         <TextView
             android:id="@+id/courseDescription"
-            android:layout_width="348dp"
+            android:layout_width="0dp"
             android:layout_height="132dp"
             android:layout_marginTop="10dp"
-            android:background="#8686f4"
+            android:background="#dbdbff"
             android:padding="5dp"
             android:maxLines = "100"
             android:scrollbars = "vertical"
-            android:textColor="@android:color/white"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/courseName"
             app:layout_constraintRight_toRightOf="@+id/courseName"
             app:layout_constraintTop_toBottomOf="@+id/courseName"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_editor_absoluteY="48dp"
-            tools:layout_editor_absoluteX="15dp" />
+            tools:layout_constraintTop_creator="1" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="348dp"
-            android:layout_height="36dp"
-            android:layout_marginBottom="-2dp"
-            android:background="#6969fc"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="#e7e7ff"
             android:text="Cancel"
             android:onClick="cancel"
-            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <ListView
-            android:id="@+id/sections"
-            android:layout_width="348dp"
-            android:layout_height="265dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#6363fa"
-            app:layout_constraintHorizontal_bias="0.571"
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseDescription"
-            tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            android:layout_width="348dp"
+            android:layout_height="0dp"
+            tools:layout_editor_absoluteX="8dp">
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Section:"/>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/sections"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#e7e7ff"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout"
+                tools:layout_constraintBottom_creator="1"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1"
+                android:layout_below="@+id/layout"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Refresh"
+                android:onClick="refresh"
+                android:layout_marginStart="174dp"
+                android:layout_marginBottom="201dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/layout" />
+
+        </RelativeLayout>
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

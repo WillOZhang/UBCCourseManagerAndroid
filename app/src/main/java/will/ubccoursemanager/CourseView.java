@@ -42,6 +42,10 @@ public class CourseView extends AppCompatActivity {
         listView.setAdapter(sListViewAdapter);
     }
 
+    public void refresh(View view) {
+
+    }
+
     public void cancel(View view) {
         setResult(RESULT_CANCELED);
         finish();
